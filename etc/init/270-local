@@ -3,3 +3,7 @@
 md () {
 	mkdir -p "$@" && cd "$@";
 }
+
+sedit () {
+	cp "$1"{,.bk} && $EDITOR "$1";
+}
