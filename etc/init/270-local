@@ -1,1 +1,5 @@
 # Kişisel Ayarlar
+
+md () {
+	mkdir -p "$@" && cd "$@";
+}
