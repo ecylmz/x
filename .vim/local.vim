@@ -1,0 +1,1 @@
+/home/ecylmz/etc/vim/local.vim
