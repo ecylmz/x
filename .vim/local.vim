@@ -1,1 +1,1 @@
-../etc/vim/local.vim
+../etc/xrc/.vim/local.vim
