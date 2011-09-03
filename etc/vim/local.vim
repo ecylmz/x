@@ -5,5 +5,3 @@
 " baştaki '#' karakterini kaldırın.
 
 " #Bundle: git://github.com/vim-scripts/<EKLENTİ ADI>.git
-
-" Bundle: git://github.com/vim-scripts/Puppet-Syntax-Highlighting.git
