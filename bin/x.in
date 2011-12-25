@@ -213,6 +213,18 @@ taskitems() {
 	[ -n "$1" ] || bug "Görev dosyası öneki tanımlanmamış"
 
 	prefix="$1"
+	shift ||:
+
+	if [ $# -ge 1 ]; then
+		local name="$1"
+		filteritems() {
+			ls ${1}/${prefix}* 2>/dev/null | egrep -s "$name" ||:
+		}
+	else
+		filteritems() {
+			ls ${1}/${prefix}* 2>/dev/null ||:
+		}
+	fi
 
 	IFS=:
 	path=($TASKLIB)
@@ -222,7 +234,7 @@ taskitems() {
 	declare -A seen
 
 	for p in ${path[@]}; do
-		for task in $(ls ${p}/${prefix}* 2>/dev/null ||:); do
+		for task in $(filteritems "$p"); do
 			case "$task" in
 			*\|*) bug "Hatalı görev dosyası adı: $task" ;;
 			esac
@@ -387,6 +399,16 @@ taskmenu() {
 	} | pdmenu - --color
 }
 
+# verilen kategori ve isimdeki görevleri çalıştır
+taskrun() {
+	exportapi
+
+	taskitems "$@" |
+	while read item; do
+		dotask "$item" taskinvoke
+	done
+}
+
 # kurulum görevlerinin (0 ve 7 kategorileri) tümünü çalıştır
 taskrun07() {
 	local categories category
@@ -471,8 +493,9 @@ go() {
 		say "'$(echo $missing)' paket(ler)i kurulu değil. " \
 		    "Önce bunlar kurulacak."
 
-		say "Paket indeksleri güncelleniyor..."
 		sudoattempt
+
+		say "Paket indeksleri güncelleniyor..."
 		xaptget update ||:
 		HAS_APT_UPDATED=yes
 
@@ -512,6 +535,21 @@ go() {
 			exit 0
 		fi
 	fi
+
+	# 10 paket deposunu ekle.
+	sudoattempt
+
+	say "19 paket deposu (yoksa) ekleniyor..."
+	adddebrepository \
+		"19" \
+		"http://deb.ondokuz.biz" \
+		"sid" \
+		"main contrib non-free" \
+		"deb.ondokuz.biz/archive.key" ||:
+
+	say "Paket indeksleri güncelleniyor..."
+	xaptget update ||:
+	HAS_APT_UPDATED=yes
 
 	# ---------------------------------------------------------------------
 	# GitHub bilgisi topla
