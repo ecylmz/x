@@ -1,41 +1,20 @@
 #!/bin/bash
 
 DEB_BASE="
-apache2-utils
 automysqlbackup
-ca-certificates
-dish
-ethtool
-fail2ban
-ipcalc
-libexpat1
-libmysqlclient16
 libmysqlclient-dev
-libopenssl-ruby
 libsqlite3-dev
-memcached
-mime-support
 mysql-client
 mysql-server
-nfs-server
-nginx-full
-ntp
-p7zip
-pssh
-rsync
 sqlite3
-ssl-cert
 wwwconfig-common
 "
 
 GEM_BASE="
-mysql
-rack
+mysql2
+activerecord
 sqlite3
-thin
 "
-
-MYSQLCONFDIR=/etc/mysql/conf.d
 
 if anyattr gui; then
 	cry "Bu bir masaüstü sistem gibi görünüyor. " \
@@ -49,6 +28,7 @@ fi
 sudoattempt
 
 # Debian'a özgü depoları ekle
+added=2
 case "$(lsb_release -s -i 2>/dev/null ||:)" in
 [Dd]ebian)
 	# Backports deposu
@@ -58,26 +38,33 @@ case "$(lsb_release -s -i 2>/dev/null ||:)" in
 			"backports" \
 			"backports.debian.org/debian-backports" \
 			"${distribution}-backports" \
-			"main" ||:
+			"main" || let added--
+	else
+		let added--
 	fi
+	# Dotdeb deposu
+	adddebrepository \
+		"dotdeb" \
+		"packages.dotdeb.org" \
+		- \
+		"all" \
+		"www.dotdeb.org/dotdeb.gpg" || let added--
 	;;
 esac
 
-# Dotdeb deposu
-adddebrepository \
-	"dotdeb" \
-	"packages.dotdeb.org" \
-	- \
-	"all" \
-	"www.dotdeb.org/dotdeb.gpg" ||:
-
-if [ -z "$HAS_APT_UPDATED" ]; then
+if [ $added -gt 0 ] || [ -z "$HAS_APT_UPDATED" ]; then
 	say "Paket indeksleri güncelleniyor..."
 	xaptitude update ||:
 fi
 
 installdebs "Gerekli Deb paketleri kuruluyor" $DEB_BASE
 installgems "Gerekli Gem paketleri kuruluyor" $GEM_BASE
+
+# ------------------------------------------------------------------------------
+# Mysql ayarları
+# ------------------------------------------------------------------------------
+
+MYSQLCONFDIR=/etc/mysql/conf.d
 
 # Türkçe dokunuşlar.
 if [ -d "$MYSQLCONFDIR" ]; then
