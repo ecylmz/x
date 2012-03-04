@@ -56,6 +56,9 @@ temsil etmektedir.
   * `c-a %`:
     pencereyi dikey olarak böl ve kabuk çalıştır
 
+  * `c-a |`:
+    pencereyi yatay olarak böl ve kabuk çalıştır
+
   * `c-a ?`:
     klavye kısayollarını listele
 
