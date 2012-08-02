@@ -7,3 +7,17 @@ md () {
 sedit () {
 	cp "$1"{,.bk} && $EDITOR "$1";
 }
+
+{ [ -d ~/.teamocil ] &&
+_teamocil()
+{
+	local cur
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+
+	local files=$(for f in ~/.teamocil/*; do f=$(basename $f); echo ${f%.*}; done)
+
+	COMPREPLY=($(compgen -W "${files}" $cur))
+}
+} &&
+complete -F _teamocil teamocil
