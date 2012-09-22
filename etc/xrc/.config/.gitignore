@@ -4,3 +4,5 @@
 !/autostart/x-xsession.desktop
 !/mc/
 !/mc/bashrc
+!/mc/ini
+!/mc/panels.ini
