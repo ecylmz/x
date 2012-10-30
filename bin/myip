@@ -1,2 +1,2 @@
 #!/bin/sh
-curl -s ifconfig.me
+curl -s http://ifconfig.me
