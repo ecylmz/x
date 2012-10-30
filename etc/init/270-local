@@ -7,3 +7,6 @@ md () {
 sedit () {
 	cp "$1"{,.bk} && $EDITOR "$1";
 }
+
+# Path
+export PATH=$PATH:/opt/google_appengine
