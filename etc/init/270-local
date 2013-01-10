@@ -8,5 +8,13 @@ sedit () {
 	cp "$1"{,.bk} && $EDITOR "$1";
 }
 
+targz () {
+	tar -cvzf $1.tar.gz $1;
+}
+
+untargz () {
+	tar -zxvf $1
+}
+
 # Path
 export PATH=$PATH:/opt/google_appengine
