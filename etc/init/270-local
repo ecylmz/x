@@ -12,7 +12,9 @@ maketar () {
 	tar -cvf $1.tar $1;
 }
 
-targz () {
+alias untar='tar -xvf'
+
+maketargz () {
 	tar -cvzf $1.tar.gz $1;
 }
 
