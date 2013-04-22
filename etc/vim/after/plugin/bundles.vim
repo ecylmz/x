@@ -36,41 +36,13 @@ endif
 if exists("g:loaded_syntastic_plugin")
 	sign define SyntasticError text=―▶ texthl=Search
 	sign define SyntasticWarning text=>> texthl=Warning
-	let g:syntastic_enable_signs=1
+	let g:syntastic_enable_signs = 1
 	set statusline+=%#warningmsg#
 	set statusline+=%{SyntasticStatuslineFlag()}
 	set statusline+=%*
 
-	if !empty(s:goinfo)
-		" Önce mevcut go eklentisini yükle (üzerine yazacağız)
-		runtime! syntax_checkers/go.vim
-
-		" Syntastic ile gelen işlevi değiştir, sadece 64 bit için çalışıyor.
-		function! SyntaxCheckers_go_GetLocList()
-			let makeprg = s:goinfo['compiler'] . ' -o /dev/null '. shellescape(expand('%'))
-			let errorformat = '%E%f:%l: %m'
-
-			return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
-		endfunction
-		" Fakat Go projelerinde Syntastic'i iptal etmek yerine en azından basit
-		" sözdizimi denetimi yap.
-		function! s:simple_syntax_check_on_go_projects()
-			if !s:has_buildfiles()
-				return
-			endif
-			if ! executable('govet')
-				" FIXME Toggle yerine doğrudan disable et
-				SyntasticToggleMode
-				return
-			endif
-			function! SyntaxCheckers_go_GetLocList()
-				let makeprg = 'govet ' . shellescape(expand('%'))
-				let errorformat =  '%Egovet: %s: %f:%l:%v: %m'
-				return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
-			endfunction
-		endfunction
-		autocmd FileType go call s:simple_syntax_check_on_go_projects()
-	endif
+	" Ruby'de rubocop denetimi istiyoruz.
+	let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 	" Statik tipli bazı dillerde geliştirilen projelerde Syntastic
 	" eklentisini etkisizleştir, aksi halde (önceden derlenmesi gereken
