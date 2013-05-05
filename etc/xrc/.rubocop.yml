@@ -1,0 +1,3 @@
+# Use only ascii symbols in identifiers and comments.
+AsciiComments:
+  Enabled: false

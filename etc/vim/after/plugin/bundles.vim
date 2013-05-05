@@ -54,6 +54,20 @@ if exists("g:loaded_syntastic_plugin")
 		endif
 	endfunction
 	autocmd FileType c,cpp call s:disable_syntastic_on_c_projects()
+
+	" Açık olarak belirtilmiş bash betiklerinde Bashism denetimi yapma.
+	function! s:disable_checkbashisms_checker()
+		let shebang = syntastic#util#parseShebang()
+		if match(shebang['exe'], 'bash') != -1
+			let g:syntastic_sh_checkers = ['sh']
+		endif
+	endfunction
+	au FileType sh call s:disable_checkbashisms_checker()
+
+	" Bashism denetiminde çok kısıtlayıcı olma
+	let g:syntastic_sh_checkbashisms_args="-x"
+
+	au FileType go au BufWritePre <buffer> Fmt
 endif
 
 if exists("g:loaded_SingleCompile")
