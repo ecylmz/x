@@ -49,8 +49,9 @@ usetempdir() {
 }
 
 locate_conf() {
-	while [ "$PWD" != "/" ]; do
+	local f
 
+	while [ "$PWD" != "/" ]; do
 		for f in app.yaml app.yml; do
 			if [ -f $f ]; then
 				return 0
@@ -58,6 +59,24 @@ locate_conf() {
 		done
 		cd ..
 	done
+	return 1
+}
+
+locate_appengine() {
+	local rootdir
+	local d
+	local try
+
+	for rootdir in $HOME /opt /usr/local/lib /usr/local; do
+		for d in go_appengine google_appengine; do
+			try="$rootdir/$d"
+			if [ -d "$try" ]; then
+				GOOGLE_APPENGINE_DIR=$try
+				return 0
+			fi
+		done
+	done
+
 	return 1
 }
 
@@ -75,16 +94,8 @@ if [ -n "$GOOGLE_APPENGINE_DIR" ]; then
 	[ -d "$GOOGLE_APPENGINE_DIR" ] || \
 		die "$GOOGLE_APPENGINE_DIR dizini bulunamadı"
 else
-	for d in ~ /opt /usr/local/lib /usr/local; do
-		try="$d/google_appengine"
-		if [ -d "$try" ]; then
-			GOOGLE_APPENGINE_DIR=$try
-			break
-		fi
-	done
+	locate_appengine || die "Google App Engine dizini bulunamadı"
 fi
-
-[ -n "$GOOGLE_APPENGINE_DIR" ] || die "Google App Engine dizini bulunamadı"
 
 goroot="$GOOGLE_APPENGINE_DIR/goroot"
 [ -d "$goroot" ] || \
