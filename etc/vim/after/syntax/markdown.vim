@@ -1,5 +1,8 @@
 " Markdown Renk Özelleştirmeleri
 
+" Kramdown lehçesi
+syn region markdownCode matchgroup=markdownCodeDelimiter start="^\s*\~\~\~.*$" end="^\s*\~\~\~\ze\s*$" keepend
+
 syn clear markdownH1 markdownH2 markdownH3 markdownH4 markdownH5 markdownH6
 syn region markdownH1 matchgroup=markdownHeadingDelimiter start="# *"      end="#*\s*$" keepend oneline contains=@markdownInline contained
 syn region markdownH2 matchgroup=markdownHeadingDelimiter start="## *"     end="#*\s*$" keepend oneline contains=@markdownInline contained
@@ -13,8 +16,8 @@ syn region markdownCodeBlock start=" \{8,}\|\t" end="$" contained contains=markd
 syn match markdownCodeBlockShebang "\%( \{8,}\|\t\)\%(!\|#!\)\S\+" contained
 
 syn clear markdownListMarker
-syn match markdownListMarker "\%(\t\| \{0,4\}\)[*]\%(\s\{3}\S\)\@=" contained contains=markdownItemBullet
-syn match markdownListMarker "\%(\t\| \{0,4\}\)[-+]\%(\s\+\S\)\@=" contained contains=markdownItemBullet
+syn match markdownListMarker "\%(\t\| \{0,4\}\)[-]\%(\s\{3}\S\)\@=" contained contains=markdownItemBullet
+syn match markdownListMarker "\%(\t\| \{0,4\}\)[*+]\%(\s\+\S\)\@=" contained contains=markdownItemBullet
 syn match markdownItemBullet '[-*+]' contained
 
 syn clear markdownOrderedListMarker
