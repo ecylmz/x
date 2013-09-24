@@ -24,6 +24,10 @@ makerar () {
 	rar a -ap $1.rar $1
 }
 
+o () {
+	xdg-open $1 &> /dev/null
+}
+
 alias unrar='unrar x'
 
 # Path
