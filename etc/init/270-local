@@ -29,6 +29,11 @@ o () {
 }
 
 alias unrar='unrar x'
+alias gam='python ~/gam/gam.py'
 
 # Path
 export PATH=$PATH:/opt/google_appengine
+export PATH=$PATH:/usr/local/go/bin
+
+export SRCDIR=/usr/local/src
+export GOPATH=${SRCDIR%/*}
