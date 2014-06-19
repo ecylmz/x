@@ -6,10 +6,6 @@
 # (TMUXPWD_* değişkeni de ayarlanmalı; bu şimdilik bash prompt dosyasında.)
 bind c run-shell 'tmux new-window -n sh "cd $(tmux display -p "\$TMUXPWD_#I"); exec ${X_SHELL:-/bin/bash}"'
 
-# bağlam duyarlı yardım (ayrı pencerede)
-bind -n F1 run-shell 'exec x-tmux-man'
-# özel yardım
-bind -n S-F1 run-shell 'exec x-tmux-man 19-not'
 # geliştirme ortamında program çalıştır
 bind -n F12 split-window -h -p 40 'run'
 # midnight commander
@@ -28,9 +24,6 @@ bind R command-prompt "split-window 'exec ri %%'"
 bind X set lock-command '/usr/bin/vlock' \; lock-client \; set lock-command 'tput civis && read -s -n2'
 
 # Standart tuşlar ve programlar
-bind F1 run-shell "exec x-tmux-launch -t 11 -n posta -c mutt x-respawn mutt"
-bind F2 run-shell "exec x-tmux-launch -t 12 -n sohbet weechat-curses"
-bind F3 run-shell "LC_CTYPE=en_US.UTF-8 exec x-tmux-launch -t 13 -n müzik mocp -- -T moca_theme"
 bind F8 select-window -t 18
 bind F9 run-shell "exec x-tmux-launch -t 19 -n x x"
 
