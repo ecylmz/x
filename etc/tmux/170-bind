@@ -3,13 +3,12 @@
 #
 # 	http://tmux.cvs.sourceforge.net/viewvc/tmux/tmux/FAQ
 #
-# (TMUXPWD_* değişkeni de ayarlanmalı; bu şimdilik bash prompt dosyasında.)
-bind c run-shell 'tmux new-window -n sh "cd $(tmux display -p "\$TMUXPWD_#I"); exec ${X_SHELL:-/bin/bash}"'
+bind c new-window -c "#{pane_current_path}"
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
 
-# geliştirme ortamında program çalıştır
-bind -n F12 split-window -h -p 40 'run'
 # midnight commander
-bind C run-shell 'tmux new-window "exec bash -c \"SHELL=/bin/bash exec mc\""'
+bind C new-window -c "#{pane_current_path}" "exec mc"
 # htop
 bind H split-window -t 18 "exec htop"
 # log dosyası görüntüle
