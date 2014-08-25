@@ -1,7 +1,0 @@
-#!/bin/bash
-
-package="tmux"
-version="1.4"
-problem="tmux'ın eski sürümlerinde pencere boyutlandırmasında hata var"
-
-updateproblematicpackage "$package" "$version" "$problem"

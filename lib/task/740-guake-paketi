@@ -1,7 +1,0 @@
-#!/bin/bash
-
-package="guake"
-version="0.4.2-1"
-problem="guake'in eski sürümlerinde TERM değişkeni ayarlanmıyor"
-
-updateproblematicpackage "$package" "$version" "$problem"
