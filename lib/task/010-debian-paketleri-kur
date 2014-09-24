@@ -21,10 +21,10 @@ dnsutils
 fail2ban
 file
 git
+golang
 htop
 iselect
 less
-libhighline-ruby1.9.1
 libio-socket-ssl-perl
 liblist-moreutils-perl
 libyaml-tiny-perl
@@ -40,7 +40,8 @@ pdmenu
 pngnq
 psmisc
 rsync
-ruby1.9.1
+ruby-all-dev
+ruby-libhighline
 ssh
 sudo
 tcpdump
@@ -75,11 +76,9 @@ ipcalc
 jpegoptim
 lbdb
 leafpad
-liblocale-ruby1.8
-liblocale-ruby1.9.1
 liblwp-useragent-determined-perl
 libmail-box-perl
-libtcltk-ruby1.9.1
+libtcltk-ruby
 libwww-perl
 libxml2-dev
 libxslt1-dev
@@ -101,6 +100,7 @@ offlineimap
 p7zip-full
 qalc
 recode
+ruby-locale
 sgrep
 sharutils
 strace
@@ -128,7 +128,6 @@ xterm
 # ------------------------------------------------------------------------------
 
 DEB_EXTRA="
-bitlbee
 build-essential
 chromium-browser
 cmake
@@ -149,10 +148,8 @@ ipython
 key-mon
 latex-beamer
 libbsd-dev
-libfacets-ruby1.9.1
 libglib2.0-dev
 libglib2.0-doc
-librspec-ruby1.9.1
 libtemplate-multilingual-perl
 libtemplate-perl
 lmodern
@@ -174,6 +171,8 @@ python-markdown-extra
 python-matplotlib
 python-numpy
 python-pygments
+ruby-facets
+ruby-rspec
 sloccount
 subversion
 t1-xfree86-nonfree

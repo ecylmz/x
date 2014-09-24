@@ -13,8 +13,7 @@ GEM_BASE="
 awesome_print
 bundler
 gist
-github
-json
+octocat
 launchy
 mime-types
 pro
@@ -36,7 +35,6 @@ slim
 # ------------------------------------------------------------------------------
 
 GEM_STANDARD="
-git-pulls
 gx
 jekyll
 nokogiri

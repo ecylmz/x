@@ -1,6 +1,2 @@
-.*
-/bundle
-/doc/bundles.txt
-/doc/tags
-/autoload/pathogen.vim
+*
 !.gitignore

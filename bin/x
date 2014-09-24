@@ -54,6 +54,7 @@ readonly COWFILE='etc/asset/x.png'
 # Bu paketler en başta gerekiyor.
 # XXX Dikkat!  Bunlar birer komut.
 readonly DEB_CORE="
+aptitude
 curl
 git
 pdmenu

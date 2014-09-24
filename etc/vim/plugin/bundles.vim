@@ -22,6 +22,5 @@ endif
 let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 0
 
-" Pad eklentisi şikayet etmesin. Bu ayarı daha sonra local.vim'de
-" değiştirebiliriz.
-let g:pad_dir = $HOME
+" Go eklentisi otomatik kurul yapmasın.
+let g:go_disable_autoinstall = 1
