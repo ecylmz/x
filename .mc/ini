@@ -1,4 +1,5 @@
 [Midnight-Commander]
+skin=modarin256root-defbg-thin
 show_backups=0
 show_dot_files=0
 use_internal_view=1
