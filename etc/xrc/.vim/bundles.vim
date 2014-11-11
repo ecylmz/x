@@ -11,8 +11,10 @@
 " Bundle: https://github.com/majutsushi/tagbar.git
 " Bundle: https://github.com/MarcWeber/vim-addon-mw-utils.git
 " Bundle: https://github.com/mattn/webapi-vim.git
+" Bundle: https://github.com/mattn/zencoding-vim.git
 " Bundle: https://github.com/mileszs/ack.vim.git
 " Bundle: https://github.com/roktas/syntastic-more.git
+" Bundle: https://github.com/scrooloose/nerdtree
 " Bundle: https://github.com/scrooloose/syntastic.git
 " Bundle: https://github.com/SirVer/ultisnips.git
 " Bundle: https://github.com/slim-template/vim-slim.git
