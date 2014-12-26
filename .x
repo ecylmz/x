@@ -9,6 +9,10 @@
 X_EMAIL='ecylmz@bil.omu.edu.tr'
 X_NAME='emre can yılmaz'
 
+if [ -x /usr/bin/zsh ]; then
+	X_SHELL=/usr/bin/zsh
+fi
+
 . ${X_HOME:=$HOME}/lib/x
 
 # vim:ft=sh
