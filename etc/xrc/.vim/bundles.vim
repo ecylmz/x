@@ -1,6 +1,7 @@
 " Yeni eklenti eklemek için bu dosyayı düzenlemek yerine ~/.vim/local.vim
 " dosyasını düzenleyin.
 
+" Bundle: https://github.com/AndrewRadev/splitjoin.vim.git
 " Bundle: https://github.com/bronson/vim-trailing-whitespace.git
 " Bundle: https://github.com/dag/vim-fish.git
 " Bundle: https://github.com/dart-lang/dart-vim-plugin.git
@@ -8,10 +9,11 @@
 " Bundle: https://github.com/junegunn/vim-easy-align.git
 " Bundle: https://github.com/juvenn/mustache.vim.git
 " Bundle: https://github.com/kchmck/vim-coffee-script.git
+" Bundle: https://github.com/kien/ctrlp.vim.git
 " Bundle: https://github.com/majutsushi/tagbar.git
 " Bundle: https://github.com/MarcWeber/vim-addon-mw-utils.git
+" Bundle: https://github.com/mattn/emmet-vim.git
 " Bundle: https://github.com/mattn/webapi-vim.git
-" Bundle: https://github.com/mattn/zencoding-vim.git
 " Bundle: https://github.com/mileszs/ack.vim.git
 " Bundle: https://github.com/roktas/syntastic-more.git
 " Bundle: https://github.com/scrooloose/nerdtree

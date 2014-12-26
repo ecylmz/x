@@ -25,7 +25,7 @@ if [ -z "$X" ]; then
 	export X_SYSTEM
 
 	# PATH - X yolu (yönetici kontrolü yapmakla uğraşma)
-	PATH=/usr/local/sbin:/usr/local/bin:$X/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/lib/gems/1.9.1/bin:/var/lib/gems/1.8/bin:/usr/local/games:/usr/games
+	PATH=/usr/local/sbin:/usr/local/bin:$X/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
 	X_PATH=$PATH
 	export PATH X_PATH
 

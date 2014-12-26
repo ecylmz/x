@@ -90,7 +90,7 @@ tmux|*/tmux)
 		sessionfile=$confdir/session-256color
 		[ -f "$sessionfile" ] && opts="$opts -f $sessionfile"
 		# Yeni oturumlarda önce istemciyi ayır
-		flags="-d"
+		flags="-A -d"
 	fi
 	if ! sh "$screen" has-session -t "$profile" 2>/dev/null; then
 		"$screen" $opts new-session $flags -n sh -s "$profile" "exec $shell"
