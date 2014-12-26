@@ -67,6 +67,8 @@
 	merge = refs/heads/master
 [user]
 	email = ecylmz@bil.omu.edu.tr
-	name = emre can yılmaz
+	name = Emre Can Yılmaz
 [github]
 	user = ecylmz
+[push]
+	default = matching
