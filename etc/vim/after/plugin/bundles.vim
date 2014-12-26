@@ -26,7 +26,7 @@ if exists("g:loaded_syntastic_plugin")
 	set statusline+=%*
 
 	" Ruby'de rubocop denetimi istiyoruz.
-	let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+	" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 	" Statik tipli bazı dillerde geliştirilen projelerde Syntastic
 	" eklentisini etkisizleştir, aksi halde (önceden derlenmesi gereken
