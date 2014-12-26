@@ -98,7 +98,7 @@ tmux|*/tmux)
 			"$screen" source-file "$f"
 		done
 	fi
-	exec "$screen" attach-session -t "$profile"
+	exec "$screen" $opts attach-session -t "$profile"
 	;;
 byobu|*/byobu)
 	# TODO
