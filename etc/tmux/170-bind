@@ -18,7 +18,7 @@ bind N split-window -t 18 "exec bmon"
 # klasik top
 bind T split-window -t 18 "exec top -s -d 0.5"
 # ruby ri
-bind R command-prompt "split-window 'exec ri %%'"
+bind R command-prompt -p "Ruby help?" "split-window 'exec ri %%'"
 # ekranı kilitle
 bind X set lock-command '/usr/bin/vlock' \; lock-client \; set lock-command 'tput civis && read -s -n2'
 

@@ -1,7 +1,6 @@
 set autoindent
 set autowrite
 set backspace=indent,eol,start
-set backupdir=./.backup,~/.backup,.,/tmp
 set backupskip=
 set completeopt-=preview
 set cpoptions+=J
@@ -41,6 +40,11 @@ set whichwrap=<,>,[,],b,s
 set wildcharm=<c-z>
 set wildmenu
 set winminheight=0
+
+" No temporary files in current directory.
+set backupdir=~/.vim/.tmp//,~/tmp/.vim//
+set directory=~/.vim/.tmp//,~/tmp/.vim//
+set undodir=~/.vim/.tmp//,~/tmp/.vim//
 
 " Allow console menus.
 "runtime menu.vim
